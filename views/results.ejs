@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.min.css">
+<style>
+div.container{
+    display:flex;
+    flex-wrap: wrap;
+}
+div.gallery {
+    margin: 4px;
+    border: 1px solid #ccc;
+    width:30%;
+}
+
+div.gallery:hover {
+    border: 1px solid #777;
+}
+
+div.gallery img {
+    width:100%;
+    height: auto;
+}
+
+div.desc {
+    padding: 15px;
+    text-align: center;
+}
+</style>
+</head>
+<body>
+    <h1>Results Page</h1>
+    <a href="/">Search Again</a>
+    <div class="container">
+        <% data["Search"].forEach(function(movie){ %>
+            <div class="gallery">
+              <a target="_blank" href="<%= movie["Poster"] %>">
+                <img src="<%= movie["Poster"] %>" width="300" height="200" alt="no image">
+              </a>
+              <div class="desc">
+                  <h4 class="text-warning"><%= movie["Title"]%></h4>
+                  <h6><%= movie["Year"] %></h6>
+              </div>
+            </div>
+        <% }); %>
+    </div>
+</body>
+</html>
